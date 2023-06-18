@@ -1,0 +1,16 @@
+---
+version: "3.8"
+
+services:
+  railway-checkin-rs:
+    build: .
+    restart: unless-stopped
+    environment:
+      ## API url to use. Currently only works with Honkers Railway. Replace the last segment of URL (sign) with {} and leave querystring intact.
+      # EVENT_URL: "https://api.honkerlab.com/event/lua/so/{}?lang=en-us&act_id=e123456789"
+
+      ## Required to login as your account. Extract these from browser.
+      API_COOKIE: "ltoken=token_here; ltuid=tuid_here"
+
+      ## Optional Discord webhook URL for notifications
+      WEBHOOK_URL: https://discord.com/api/webhooks/123456789/abcdefg
